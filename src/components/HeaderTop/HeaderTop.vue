@@ -34,6 +34,7 @@
 			//比例
 			width 10%
 			height 50%
+			color #FFFFFF
 			.iconfont
 				font-size 25px
 				color #FFFFFF

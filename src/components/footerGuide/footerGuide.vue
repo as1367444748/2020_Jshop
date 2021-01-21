@@ -1,24 +1,24 @@
 <template>
   <div class="footer_guide">
-	<router-link class="guide_item" to="/msite">
+	<router-link replace class="guide_item" to="/msite">
 		<span class="item_icon">
 			<em class="iconfont icon-waimai-"></em>
 		</span>
 		<span>外卖</span>
 	</router-link>
-	<router-link  class="guide_item" to="/search">
+	<router-link replace class="guide_item" to="/search">
 		<span class="item_icon">
 			<em class="iconfont icon-sousuo2"></em>
 		</span>
 		<span>搜索</span>
 	</router-link>
-	<router-link class="guide_item" to="/order">
+	<router-link replace class="guide_item" to="/order">
 		<span class="item_icon">
 			<em class="iconfont icon-dingdan1"></em>
 		</span>
 		<span>订单</span>
 	</router-link>
-	<router-link class="guide_item" to="/profile">
+	<router-link replace class="guide_item" to="/profile">
 		<span class="item_icon">
 			<em class="iconfont icon-geren"></em>
 		</span>

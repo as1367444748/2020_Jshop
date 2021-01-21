@@ -3,17 +3,17 @@
 		<HeaderTop title="我的"></HeaderTop>
 			<!-- S登录注册 -->
 			<div class="profile_number">
-				<router-link  class="profile_link" to="/Login">
+				<router-link  class="profile_link" :to="userInfo._id?'/UserInfo':'/Login'">
 					<div class="profile_image">
 						<i class="iconfont icon-geren"></i>
 					</div>
 					<div class="user-info">
-						<p class="user-info-top">登录/注册</p>
+						<p class="user-info-top" v-if="!userInfo.phone">{{userInfo.name || '登录注册'}}</p>
 						<p>
 							<span class="user-icon">
 								<i class="iconfont icon-shouji"></i>
 							</span>
-							<span class="icon-mobile-number">暂无绑定手机号</span>
+							<span class="icon-mobile-number">{{userInfo.phone || '暂无手机号登录'}}</span>
 						</p>
 					</div>
 					<div class="arrow">
@@ -105,14 +105,36 @@
 				</a>
 			</div>
 			<!-- E服务商城 -->
+			<mt-button @click="logout" type="danger" class="logout" v-if="userInfo._id">退出登录</mt-button>
 	</div>
 </template>
 
 <script>
+	//接受来自vuex中state的数据
+	import {mapState} from 'vuex'
 	import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
+	import { MessageBox,Toast } from 'mint-ui';
+	
 	export default{
+		methods:{
+			logout(){
+				MessageBox.confirm('确定退出?').then(
+				action => {
+				  this.$store.dispatch('logout')
+				  Toast('登出成功')
+				},
+				action => {
+				  console.log("取消")
+				}
+				);
+			}
+		},
+		computed:{
+			//抽取出来用
+			...mapState(['userInfo'])
+		},
 		components:{
-			HeaderTop
+			HeaderTop,
 		}
 	}
 </script>
@@ -122,6 +144,17 @@
 .profileContainer
 	width 100%
 	overflow hidden
+	.logout
+		position  absolute
+		left 50%
+		margin-left -170px
+		margin-top 20px
+		width 340px
+		height 40px
+		text-align center
+		line-height 40px
+		color #fff
+		font-size 18px
 	.profile_number
 		margin-top 45.5px
 		.profile_link
