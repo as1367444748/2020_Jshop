@@ -3,7 +3,7 @@
 		<div class="loginInner">
 			<!-- 登录头部 -->
 			<div class="login_header">
-				<h2 class="login_logo">傻哥外卖</h2>
+				<h2 class="login_logo">情久外卖</h2>
 				<div class="login_header_title">
 					<a href="javascript:;" :class="{on:loginWay}"  @click="loginWay=true">短信登录</a>
 					<a href="javascript:;" :class="{on:!loginWay}" @click="loginWay=false">密码登录</a>
@@ -27,7 +27,7 @@
 							<input type="text" maxlength="8" placeholder="验证码" v-model="Phonecode">
 						</section>
 						<section class="login_hint">
-							温馨提示：未注册傻哥外卖帐号的手机号，登录时将自动注册，且代表已同意
+							温馨提示：未注册情久外卖帐号的手机号，登录时将自动注册，且代表已同意
 							<a href="javascript:;">《用户服务协议》</a>
 						</section>
 					</div>
